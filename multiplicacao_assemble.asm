@@ -52,6 +52,7 @@
             FinalForK:
 
             mul $t6, $t0, $t5   # t6 = i * 4
+
             add $t6, $t6, $t1   # t9 = (i * 4) + j
             mul $t6, $t6, $t5   # t9 = ((i * 4) + j) * 4
             add $s5, $t6, $s2   # s5 = (((i * 4) + j) * 4) + matriz
