@@ -1,0 +1,52 @@
+Comando
+    b1 - add    -  0000 -> OP - RD - RS - RT - IMEDIATO
+    b2 - mul    -  0001 -> OP - RD - RS - RT - IMEDIATO
+    b3 - addi   -  0010 -> OP - RD - RNULO - RT - IMEDIATO
+    p4 - bge    -  0011 -> OP - RNULO - RS - RT - IMEDIATO 
+    p5 - li     -  0100 -> OP - RD - RNULO - RZERO - IMEDIATO
+    bm6 - lw     -  0101 -> OP - RD - RNULO - RT - IMEDIATO
+    bm7 - sw     -  0110 -> OP - RNULO - RS - RT - IMEDIATO
+    b8 - j      -  0111 -> OP(bge) - RNULO - RZERO - RZERO - IMEDIATO 
+    b9 - add hazard - 1001 -> OP - RD - RS - RT - IMEDIATO
+    b10 - mul hazard - 1010 > OP - RD - RS - RT - IMEDIATO
+
+RNULO - recomendo colocar $zero
+
+Add $t0, $t1, $t2 -> add RD, RS, RT -> 06780000
+Mul $t0, $t1, $t2 -> mul RD, RS, RT
+Addi $t0, $t1, 2 -> addi RD, RT, IMEDIATO
+Bge $t0, $t1, 3 -> bge RT, RS, IMEDIATO
+Li $t0, 5 -> li RD, IMEDIATO
+Lw $t0, 0($t2) -> lw RD, IMEDIATO(RT)
+Sw $t0, 0($t2) -> sw RS, IMEDIATO(RT)
+J 5 -> j IMEDIATO
+Add hazard $t0, $t1, $t2 -> add RD, RT, RS
+Mul hazard $t0, $t1, $t2 -> mul RD, RT, RS
+
+0 - add
+1 - mul
+2 - addi
+3 - bge
+4 - li
+5 - lw
+6 - sw
+7 - jump
+8 - bolha
+9 - add data hazard
+a - mul data hazard
+
+s0 = 0
+s1 = 1
+s3 = 3
+s4 = 4
+s5 = 5
+t0 = 6
+t1 = 7
+t2 = 8
+t3 = 9
+t4 = a
+t5 = b
+t6 = c
+sp = d
+zero = e
+t7 = f 

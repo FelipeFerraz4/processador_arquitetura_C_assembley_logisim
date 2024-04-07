@@ -1,0 +1,56 @@
+v2.0 raw
+# # 2dd00040    # addi $sp, $sp, -64 
+40ee0000        # li $s0, 0     # add $s0, $sp, $zero
+# # 2dd00040    # addi $sp, $sp, -64 
+41ee0010        # li $s1, 16    # add $s1, $sp, $zero
+# # 2dd00040    # addi $sp, $sp, -64 
+42ee0020        # li $s2, 32    # add $s2, $sp, $zero
+
+46ee0000    # li $t0, 0
+48ee0000    # li $t2, 0
+49ee0000    # li $t3, 0
+4bee0004    # li $t5, 4
+4fee0001    # li $t7, 1
+
+3eb6001c    # bge $t0, $t5, (28)FinalForI
+47ee0000    # li $t1, 0	# j
+3eb70018    # bge $t1, $t5, (24)FinalForJ
+4aee0000    # li $t4, 0
+3eba000e    # bge $t4, $t5, (14)FinalForK
+
+1c6b0000    # mul $t6, $t0, $t5
+0cca0000    # add $t6, $t6, $t4
+1ccf0000    # mul $t6, $t6, $t7
+03c00000    # add $s3, $t6, $s0
+
+53e30000    # lw $s3, 0($s3)
+
+1cab0000    # mul $t6, $t4, $t5
+0cc70000    # add $t6, $t6, $t1
+1ccf0000    # mul $t6, $t6, $t7     # talvez 1 em 4($t5)
+04c10000    # add $s4, $t6, $s1
+
+54e40000    # lw $s4, 0($s4)
+
+1c340000    # mul $t6, $s3, $s4
+099c0000    # add $t3, $t3, $t6
+2aea0001    # addi $t4, $t4, 1
+
+3eeefff1    # j (-15)InicioFork
+
+1c6b0000    # mul $t6, $t0, $t5
+0cc70000    # add $t6, $t6, $t1
+1ccf0000    # mul $t6, $t6, $t7
+05c20000    # add $s5, $t6, $s2
+
+6e950000    # sw $t3, 0($s5)
+
+49ee0000    # li $t3, 0
+27e70001    # addi $t1, $t1, 1
+
+3eeeffe7    # j (-25)InicioForJ
+
+26e60001    # addi $t0, $t0, 1
+
+3eeeffe3   # j (-29)InicioForI
+

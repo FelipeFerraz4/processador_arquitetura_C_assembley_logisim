@@ -1,0 +1,41 @@
+v2.0 raw
+# li funcionando
+# add funcionando
+# mul funcionando
+# bge funcionando
+# addi funcionando
+# lw funcionando
+# sw funcionando
+# mul data hazard funcionando
+
+46000002 # teste do li, registrador 6 = 2
+47000003 # teste do li, registrador 7 = 3
+48000004 # teste do li, registrador 8 = 4
+
+80000000 # bolha necessarias 4 para o comando volte total
+80000000
+80000000
+80000000
+
+09670000 # teste do add, registrador 9 = 2 + 3 = 5
+1a680000 # teste do mul, registrador 10 = 2 x 4 = 8
+2b060007 # teste do addi, registrador 11 = 2 + 7 = 9
+5cee0000 # teste do lw, registrador 12 = posicao 0 da memoria = 1
+80000000 # bolha necessarias 4 para o comando volte total
+80000000
+80000000
+80000000
+6eae0002 # sw $t4, 2($zero)
+
+30ee0002 # teste do bge, pula 2 linha para o addi bge pula uma a mais do que o imediato
+80000000 # bolha necessarias 3 para o comando volte total
+80000000
+80000000
+
+00670000 # teste do add, registrador 0 = 2 + 3 = 5
+a1600000 # teste do mul, registrador 1 = 5 x 2 = 10
+92610000 # teste do add, registrador 9 = 2 + 10 = 12
+80000000
+80000000
+80000000
+80000000

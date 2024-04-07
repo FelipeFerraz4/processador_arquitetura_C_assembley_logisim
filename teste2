@@ -1,0 +1,40 @@
+v2.0 raw
+# 2dd00040    # addi $sp, $sp, -64 
+40000000    # li $s0, 0 # add $s0, $sp, $zero
+# 2dd00040    # addi $sp, $sp, -64 
+41000010    # li $s1, 0
+# 2dd00040    # addi $sp, $sp, -64 
+42000020    # li $s2, 0
+48000000    # li $t2, 0
+49000000    # li $t3, 0
+46000000    # li $t0, 0
+4b000004    # li $t5, 4
+36b0001d    # bge $t0, $t5, FinalForI
+47000000    # li $t1, 0	# j
+37b00019    # bge $t1, $t5, FinalForJ
+4a000000    # li $t4, 0
+3ab0000f    # bge $t4, $t5, FinalForK
+1c6b0000    # mul $t6, $t0, $t5
+0cca0000    # add $t6, $t6, $t4
+1ccb0000    # mul $t6, $t6, $t5
+03c00000    # add $s3, $t6, $s0
+53e30000    # lw $s3, 0($s3)
+1cab0000    # mul $t6, $t4, $t5
+0cc70000    # add $t6, $t6, $t1
+1ccb0000    # mul $t6, $t6, $t5
+04c10000    # add $s4, $t6, $s1
+54e40000    # lw $s4, 0($s4)
+1c340000    # mul $t6, $s3, $s4
+099c0000    # add $t3, $t3, $t6
+2aa00001    # addi $t4, $t4, 1
+3ee0fff1    # j InicioFork
+1c6b0000    # mul $t6, $t0, $t5
+0cc70000    # add $t6, $t6, $t1
+1ccb0000    # mul $t6, $t6, $t5
+05c20000    # add $s5, $t6, $s2
+65e90000    # sw $s5, 0($t3)
+49000000    # li $t3, 0
+27700001    # addi $t1, $t1, 1
+3ee0ffe7    # j InicioForJ
+26600001    # addi $t0, $t0, 1
+3ee0ffe3    # j InicioForI

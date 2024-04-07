@@ -1,0 +1,22 @@
+v2.0 raw
+# li funcionando
+# add funcionando
+# mul funcionando
+# addi funcionando
+# bge funcionando
+# lw funcionando
+# sw funcionando
+# memoria foi preenchido a primeira linha de 1 a 16 sem usar letra na forma decimal
+46000002 # teste do li, registrador 6 = 2
+47000003 # teste do li, registrador 7 = 3
+48000004 # teste do li, registrador 8 = 4
+09670000 # teste do add, registrador 9 = 2 + 3 = 5
+1a680000 # teste do mul, registrador 10 = 2 x 4 = 8
+30ee0003 # teste do bge, pula 3 linha para o addi
+80000000
+80000000
+80000000
+2b060007 # teste do addi, registrador 11 = 2 + 7 = 9 -> add (registradorDestino), (registradorQualquer, pois não é usado), (registrador da soma), (imediato)
+5c0e0005 # teste do lw, registrador 12 = posicao 5 da memoria = 6
+#teste do sw, valor do registrador 10 vai para a posicao 2 da memoria
+60ae0002 # sw $t4, 0($zero) -> sw (registradorQualquer, pois não é usado), (registradorQueVaiSubirParaMemoria), (registrador da soma), (imediato)
